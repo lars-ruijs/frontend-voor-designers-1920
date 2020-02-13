@@ -14,3 +14,23 @@ body{
   border-radius: 1em;
   box-shadow: 0.5em 0.5em 0.5em rgba(68,68,68,0.6);
 }
+li{
+  padding: 1em;
+  margin: 0 0 1em 0;
+}
+
+body ul {
+  padding: 0;
+  list-style: none;
+}
+body ul .sleepbaar {
+  font-family: sans-serif;
+  background-color: lightgrey;
+  color: #212121;
+  cursor: move;
+  transition: all 200ms;
+}
+
+.over {
+  transform: scale(1.1, 1.1);
+}
