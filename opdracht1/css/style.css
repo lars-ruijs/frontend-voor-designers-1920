@@ -1,36 +1,130 @@
-html{
-  box-sizing: border-box; /* https://css-tricks.com/box-sizing/ */
-  background:#eee;
-  background: url("../img/flagF4D.png") center no-repeat;
+
+body {
+  font-family: 'Proxima Nova', sans-serif;
+  margin: 0 0 5em 0;
+  background-color: #202020;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
 }
-*, *:before, *:after {
-  box-sizing: inherit;
+
+header {
+  background: linear-gradient(180deg, rgba(57,32,177,1) 0%, rgba(80,66,163,1) 40%, rgba(32,32,32,1) 100%);
+  padding: 5em 3em 3em 5em;
+  color: white;
+  height: 30em;
+  text-transform: uppercase;
 }
-body{
-  max-width: 30em;
-  margin: 1em auto;
-  padding: 1em;
-  background: #fff;
-  border-radius: 1em;
-  box-shadow: 0.5em 0.5em 0.5em rgba(68,68,68,0.6);
+
+main  {
+  background: linear-gradient(180deg, rgba(57,32,177,1) 0%, rgba(80,66,163,1) 40%, rgba(32,32,32,1) 100%);
+  padding: 5em 10vw 0 0;
 }
-li{
+
+header img {
+  border-radius: 0.5em;
+  max-width: 15em;
+  box-shadow: 0px 1px 19px 5px rgba(0,0,0,0.18);
+  margin-bottom: 2em;
+}
+
+header p {
+  margin: 0;
+}
+
+header h1 {
+  margin: 0 0 1em 0;
+}
+
+button {
+ background-color: #4CAF50;
+ border: none;
+ color: white;
+ padding: 0.9em 2em;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 1.1em;
+ border-radius: 5em;
+ text-transform: uppercase;
+ font-family: 'Proxima Nova', sans-serif;
+ outline: none;
+ cursor: pointer;
+}
+
+button:active {
+  background-color: #2e2e2e;
+}
+
+button.wijzig {
+  background-color: rgba(80,66,163,1);
+  font-size: 1em;
+}
+
+button.wijzig::before {
+  content: '•••';
+  margin-right: 0.5em;
+}
+
+li {
   padding: 1em;
   margin: 0 0 1em 0;
+  display: flex;
 }
 
 body ul {
   padding: 0;
   list-style: none;
 }
-body ul .sleepbaar {
-  font-family: sans-serif;
-  background-color: lightgrey;
-  color: #212121;
-  cursor: move;
-  transition: all 200ms;
+
+/* De list elementen */
+  body ul .list-element {
+    background-color: #fff;
+    color: #212121;
+    border-radius: 0.3em;
+    box-shadow: 0px 1px 19px 5px rgba(0,0,0,0.18);
+
+  }
+
+
+ul li p {
+  vertical-align: middle;
+  flex-grow: 3;
+  line-height: 1.8;
+  margin-left: 0.5em;
+  opacity: 0.4;
 }
 
-.over {
-  transform: scale(1.1, 1.1);
-}
+/* Album afbeelding in list-item */
+  li.list-element img {
+    width: 4em;
+    border-radius: 0.2em;
+    display: inline-block;
+    margin: 0em 2em 0 2em;
+  }
+
+/* Afspeel icon */
+  li.list-element img.play-icon {
+    width: 2em;
+    cursor: pointer;
+  }
+
+/* Versleep icon */
+  li.list-element img.reorder-icon {
+    width: 1.5em;
+    opacity: 20%;
+    margin: 0 0.5em 0 1em;
+  }
+
+  li.list-element img.reorder-icon.hidden {
+    display: none;
+  }
+
+/* SortableJS ghost
+   via https://github.com/SortableJS/Sortable
+
+   Het element dat verschijnt op de plek waar je het item 'dropt'
+*/
+  .list-element.sortable-ghost {
+    visibility: hidden; /* Er wordt alleen ruimte getoond, geen visueel element */
+  }

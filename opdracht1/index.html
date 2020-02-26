@@ -6,24 +6,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Playlist</title>
   <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://use.typekit.net/xiy4vwg.css"> <!-- Font 'Proxima Nova' via Adobe Fonts -->
 </head>
 
 <body>
+  <!--
+    HEADER
+    (album, play-button)
+  -->
+  <header>
+    <img src="img/album.png" alt="album cover">
+    <p>Playlist</p>
+    <h1>Top 40</h1>
+
+    <button>Afspelen</button>
+  </header>
   <main>
-    <header>
-      <p>Playlist</p>
-      <h1>Top 40</h1>
-      <p>door: <a href="#">lars-ruijs</a></p>
-    </header>
-    <ul>
-      <li class="sleepbaar" draggable="true">Nummer 1</li>
-      <li class="sleepbaar" draggable="true">Nummer 2</li>
-      <li class="sleepbaar" draggable="true">Nummer 3</li>
-      <li class="sleepbaar" draggable="true">Nummer 4</li>
-      <li class="sleepbaar" draggable="true">Nummer 5</li>
+    <button class="wijzig">Wijzig</button>
+
+    <!--
+      LIJST
+      (drag and drop via SortableJS)
+    -->
+    <ul id="dragable-list" class="list-container">
+      <!-- ID "drabable-list" is belangrijk voor SortableJS -->
+
+      <li class="list-element">
+        <img class="reorder-icon hidden" draggable="false" src="img/reorder-24px.svg" alt="sleep om volgorde te veranderen" />
+        <img draggable="false" src="img/family.jpg" alt="cover van family" />
+        <h3>Family</h3>
+        <p>
+          The Chainsmokers
+        </p>
+        <img class="play-icon" draggable="false" src="img/play_circle_filled-24px.svg" alt="druk om af te spelen" />
+      </li>
+
+      <li class="list-element">
+        <img class="reorder-icon hidden" draggable="false" src="img/reorder-24px.svg" alt="sleep om volgorde te veranderen" />
+        <img draggable="false" src="img/hold-on.jpg" alt="cover van hold on" />
+        <h3>Hold On</h3>
+        <p>
+          Martin Garrix
+        </p>
+        <img class="play-icon" draggable="false" src="img/play_circle_filled-24px.svg" alt="druk om af te spelen" />
+      </li>
+
+      <li class="list-element">
+        <img class="reorder-icon hidden" draggable="false" src="img/reorder-24px.svg" alt="sleep om volgorde te veranderen" />
+        <img draggable="false" src="img/storm.jpg" alt="cover van storm" />
+        <h3>Storm</h3>
+        <p>
+          Famba
+        </p>
+        <img class="play-icon" draggable="false" src="img/play_circle_filled-24px.svg" alt="druk om af te spelen" />
+      </li>
+
+      <li class="list-element">
+        <img class="reorder-icon hidden" draggable="false" src="img/reorder-24px.svg" alt="sleep om volgorde te veranderen" />
+        <img draggable="false" src="img/light.jpeg" alt="cover van light" />
+        <h3>Light</h3>
+        <p>
+          Jerome
+        </p>
+        <img class="play-icon" draggable="false" src="img/play_circle_filled-24px.svg" alt="druk om af te spelen" />
+      </li>
+
+      <li class="list-element">
+        <img class="reorder-icon hidden" draggable="false" src="img/reorder-24px.svg" alt="sleep om volgorde te veranderen" />
+        <img draggable="false" src="img/after-hours.jpeg" alt="cover van after hours" />
+        <h3>After Hours</h3>
+        <p>
+          M-22
+        </p>
+        <img class="play-icon" draggable="false" src="img/play_circle_filled-24px.svg" alt="druk om af te spelen" />
+      </li>
+
     </ul>
   </main>
 
+  <!--
+    SCRIPTS
+    (SortableJS via https://github.com/SortableJS/Sortable)
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.js"></script>
   <script src="js/script.js" type="text/javascript"></script>
 </body>
 
