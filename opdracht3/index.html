@@ -1,8 +1,55 @@
-<html>
-  <head>
-    <title>Frontend voor Designer - Opdracht 3</title>
-  </head>
+<!DOCTYPE html>
+<html lang="nl">
 
-  <body>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Het weer</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="https://use.typekit.net/xiy4vwg.css"> <!-- Font 'Proxima Nova' via Adobe Fonts -->
+</head>
+
+<body>
+
+  <header>
+  </header>
+
+  <main>
+    <section class="links">
+      <h1>Mijn locatie:</h1>
+      <article>
+        <!-- De zero state waarbij wordt gevraagd naar de locatie van de gebruiker
+              De pop-up is al zichtbaar
+        -->
+        <h2 class="plaats">Mogen we je locatie gebruiken voor dit weerbericht?</h2>
+        <img src="img/location.png" alt="icon van locatie" />
+        <p class="temperatuur-huidig"></p>
+        <p class="omschrijving-huidig">Druk op 'Toestaan' in de popup om de beste weersverwachting voor je huidige locatie te zien.</p>
+        <button type="button" name="anderweer" class="verberg"></button>
+        <button type="button" name="verwachting" class="verberg">Weersverwachting</button>
+      </article>
+    </section>
+
+    <section class="rechts">
+      <h1>Favoriete locaties:</h1>
+      <button class="wijzig">Wijzig</button>
+
+      <ul id="dragable-list" class="list-container">
+
+      </ul>
+      <!--
+        Hierboven komen de dragable list-items te staan
+      -->
+
+    </section>
+  </main>
+
+  <!--
+    SCRIPTS
+    (SortableJS via https://github.com/SortableJS/Sortable)
+  -->
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.js"></script>
+  <script src="scripts/script.js" type="text/javascript"></script>
+</body>
+
 </html>

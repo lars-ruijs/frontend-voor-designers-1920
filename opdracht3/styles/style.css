@@ -1,0 +1,168 @@
+html {
+  background-image: url("../img/wolken.jpeg"); /* The image used */
+  background-color: #fff; /* Used if the image is unavailable */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+body {
+  font-family: "Proxima-Nova", sans-serif;
+  padding: 2em 6vw 0em 6vw;
+  color: #4f4f4f;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr;
+}
+
+.links h1 {
+  margin-bottom: 1.2em;
+}
+
+h1 {
+  color: #ec6e4c;
+  margin-bottom: 1em;
+}
+
+button {
+  cursor: pointer;
+  outline: none;
+  padding: 1em 2em;
+  background-color: #ec6e4c;
+  color: #fff;
+  border: none;
+  border-radius: 2em;
+  font-family: 'Proxima-Nova', sans-serif;
+  font-size: 1em;
+  transition: all .3s ease;
+}
+
+button:hover {
+  background-color: #fff;
+  border: 1px solid #ec6e4c;
+  color: #ec6e4c;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.9);
+}
+
+.verberg {
+  display: none;
+}
+
+section.links {
+  padding: 1em 3vw;
+}
+
+section.links article {
+  padding: 3em;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 0.3em;
+  box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+section.links article:active {
+  transform: scale(0.95);
+}
+
+section.links article p.temperatuur-huidig {
+  font-size: 1.5em;
+  margin: 0.7em 0 0 0;
+}
+
+section.links article p.omschrijving-huidig {
+  color: #8a8a8a;
+  margin: 0.5em 0 2em 0;
+}
+
+section.links article button {
+  margin-bottom: 1.5em;
+}
+
+section.rechts {
+  padding: 1em 3vw;
+  transition: all .2s ease;
+}
+
+button.wijzig::before {
+  content: '•••';
+  margin-right: 0.5em;
+}
+
+li {
+  padding: 1em;
+  margin: 0 0 1em 0;
+  display: flex;
+}
+
+body ul {
+  padding: 0;
+  list-style: none;
+}
+
+/* De list elementen */
+  body ul .list-element {
+    background-color: #fff;
+    color: #212121;
+    border-radius: 0.3em;
+    box-shadow: 0px 1px 19px 5px rgba(0,0,0,0.18);
+
+  }
+
+  ul li p {
+  vertical-align: middle;
+  flex-grow: 3;
+  line-height: 1.8;
+  margin-left: 0.5em;
+  opacity: 0.4;
+}
+
+ul li p.temperatuur {
+  text-align: right;
+  margin-right: 2.5em;
+  opacity: 1;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+  /* Album afbeelding in list-item */
+  li.list-element img {
+    width: 4em;
+    border-radius: 0.2em;
+    display: inline-block;
+    margin: 0em 2em 0 2em;
+  }
+
+/* Afspeel icon */
+  li.list-element img.play-icon {
+    width: 2em;
+    cursor: pointer;
+  }
+
+/* Versleep icon */
+  li.list-element img.reorder-icon {
+    width: 1.5em;
+    opacity: 20%;
+    margin: 0 0.5em 0 1em;
+  }
+
+  li.list-element img.reorder-icon.verberg {
+    display: none;
+  }
+
+/* SortableJS ghost
+   via https://github.com/SortableJS/Sortable
+
+   Het element dat verschijnt op de plek waar je het item 'dropt'
+*/
+  .list-element.sortable-ghost {
+    visibility: hidden; /* Er wordt alleen ruimte getoond, geen visueel element */
+  }
