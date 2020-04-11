@@ -1,11 +1,16 @@
 # Opdracht 3: Weer applicatie via API
 
-Tot nu toe heb ik een simpele weer applicatie gemaakt die het weer toont van je huidige locatie en het weer van ‘favoriete’ locaties. Hiervoor heb ik gebruik gemaakt van de API van OpenWeatherMap. Met de library SortableJS kun je de volgorde van de favoriete locaties wijzigen. Ik ben nog bezig met het maken van een soort ‘detail’ popup als je op de knop ‘Weersverwachting’ drukt.
+Ik heb een simpele weer applicatie gemaakt die het weer toont van je huidige locatie en van een aantal wereldsteden.
+Wanneer je op de knop 'Weersverwachting' drukt, krijg je het weer voor de komende periode in een popup te zien o.b.v. je huidige locatie.
 
-## Vragen
-* Ik heb states toegevoegd aan het gedeelte ‘Mijn Locatie’. Is dit voldoende of moeten alle elementen states hebben?
-* Heb je suggesties voor passende UI events?
+Voor de weerdata heb ik gebruik gemaakt van de API van OpenWeatherMap.
 
-## Gebruikte API en Library
-[OpenWeatherMap.org](https://openweathermap.org/) als API voor de actuele weerdata en
-[SortableJS](https://github.com/SortableJS/Sortable) als library voor het drag-and-droppen van de lijst met steden.  
+## States
+Bij het gedeelte 'Mijn locatie, komend uur:' heb ik states verwerkt die kunnen optreden voor, tijdens en na het vragen van je locatie.
+* **Ideal state:** De gebruiker heeft toegang gegeven tot de locatie en het weerbericht wordt getoond.
+* **Permission state:** De gebruiker krijgt een popup te zien met de vraag naar locatietoegang. Op de plek waar het weerbericht zou moeten staan, staat uitleg over waarom toestemming nodig is.
+* **Loading state:** De gebruiker heeft toegang gegeven tot de locatie en de browser is bezig met het vaststellen van de locatie en/of de API is de weerdata voor deze locatie aan het laden.
+* **Error state:** De gebruiker heeft geen toegang gegeven tot de locatie.
+
+## Gebruikte API
+[OpenWeatherMap.org](https://openweathermap.org/) als API voor de actuele weerdata

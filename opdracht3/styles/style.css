@@ -1,15 +1,16 @@
 html {
-  background-image: url("../img/wolken.jpeg"); /* The image used */
-  background-color: #fff; /* Used if the image is unavailable */
-  background-position: center; /* Center the image */
-  background-repeat: no-repeat; /* Do not repeat the image */
-  background-size: cover; /* Resize the background image to cover the entire container */
+  background-image: url("../img/wolken.jpeg");
+  background-color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 body {
   font-family: "Proxima-Nova", sans-serif;
-  padding: 2em 6vw 0em 6vw;
+  padding: 2em 6vw 3em 6vw;
   color: #4f4f4f;
+
 }
 
 main {
@@ -17,14 +18,14 @@ main {
   grid-template-columns: 1fr 2fr;
   grid-template-rows: 1fr;
 }
-
-.links h1 {
-  margin-bottom: 1.2em;
-}
-
 h1 {
   color: #ec6e4c;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
+}
+
+section.popup h1 {
+  margin-bottom: 2.5em;
+  text-align: center;
 }
 
 button {
@@ -55,69 +56,70 @@ button:active {
   display: none;
 }
 
-section.links {
-  padding: 1em 3vw;
-}
+/* Content aan de linkerkant
+    > Het weerbericht van je huidige locatie
+*/
 
-section.links article {
-  padding: 3em;
-  text-align: center;
-  background-color: #fff;
-  border-radius: 0.3em;
-  box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.15);
-  cursor: pointer;
-  transition: all .3s ease;
-}
+  section.links {
+    padding: 1em 3vw;
+  }
 
-section.links article:active {
-  transform: scale(0.95);
-}
+  section.links article {
+    padding: 3em;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 0.3em;
+    box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.15);
+    cursor: pointer;
+    transition: all .3s ease;
+  }
 
-section.links article p.temperatuur-huidig {
-  font-size: 1.5em;
-  margin: 0.7em 0 0 0;
-}
+  section.links article:active {
+    transform: scale(0.95);
+  }
 
-section.links article p.omschrijving-huidig {
-  color: #8a8a8a;
-  margin: 0.5em 0 2em 0;
-}
+  p.temperatuur-huidig {
+    font-size: 1.5em;
+    margin: 0.7em 0 0 0;
+  }
 
-section.links article button {
-  margin-bottom: 1.5em;
-}
+  p.omschrijving-huidig {
+    color: #8a8a8a;
+    margin: 0.5em 0 2em 0;
+  }
 
-section.rechts {
-  padding: 1em 3vw;
-  transition: all .2s ease;
-}
+  section.links article button {
+    margin-bottom: 1.5em;
+  }
 
-button.wijzig::before {
-  content: '•••';
-  margin-right: 0.5em;
-}
+/* Content aan de rechterkant
+    > Het weerbericht van wereldsteden
+*/
 
-li {
-  padding: 1em;
-  margin: 0 0 1em 0;
-  display: flex;
-}
+  section.rechts {
+    padding: 1em 3vw;
+    transition: all .2s ease;
+  }
 
-body ul {
-  padding: 0;
-  list-style: none;
-}
+  li {
+    padding: 1em;
+    margin: 0 0 1em 0;
+  }
+
+  body ul {
+    padding: 0;
+    list-style: none;
+  }
 
 /* De list elementen */
   body ul .list-element {
     background-color: #fff;
     color: #212121;
     border-radius: 0.3em;
-    box-shadow: 0px 1px 19px 5px rgba(0,0,0,0.18);
-
+    display: flex;
   }
 
-  ul li p {
+  ul.list-container li p {
   vertical-align: middle;
   flex-grow: 3;
   line-height: 1.8;
@@ -125,15 +127,18 @@ body ul {
   opacity: 0.4;
 }
 
-ul li p.temperatuur {
-  text-align: right;
-  margin-right: 2.5em;
-  opacity: 1;
+p.grootBold {
   font-size: 1.1em;
   font-weight: bold;
 }
 
-  /* Album afbeelding in list-item */
+ul.list-container li p.grootBold {
+  text-align: right;
+  margin-right: 2.5em;
+  opacity: 1;
+}
+
+  /* Wolk afbeelding in list-item */
   li.list-element img {
     width: 4em;
     border-radius: 0.2em;
@@ -141,28 +146,82 @@ ul li p.temperatuur {
     margin: 0em 2em 0 2em;
   }
 
-/* Afspeel icon */
-  li.list-element img.play-icon {
-    width: 2em;
-    cursor: pointer;
-  }
-
-/* Versleep icon */
-  li.list-element img.reorder-icon {
-    width: 1.5em;
-    opacity: 20%;
-    margin: 0 0.5em 0 1em;
-  }
-
-  li.list-element img.reorder-icon.verberg {
+  /* De popup (achtergrond ervan) */
+  .popup {
+    position: fixed;
+    z-index: 999;
+    padding-top: 2em;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
     display: none;
   }
 
-/* SortableJS ghost
-   via https://github.com/SortableJS/Sortable
+  /* Content van de Popup */
+  .popup-content {
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    width: 60%;
+    padding: 4vw 5vw;
+    transition: all .2s ease;
+    border-radius: 0.3em;
+    box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.15);
+  }
 
-   Het element dat verschijnt op de plek waar je het item 'dropt'
-*/
-  .list-element.sortable-ghost {
-    visibility: hidden; /* Er wordt alleen ruimte getoond, geen visueel element */
+  .popup-content ul {
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+  }
+
+  .popup-content h3 {
+    text-align: center;
+    margin-top: 2.5em;
+    padding-bottom: 1em;
+    border-bottom: 1px solid #ededed;
+  }
+
+
+/* Knop om de popup te kunnen sluiten */
+
+  .close {
+    color: #fff;
+    float: right;
+    font-weight: bold;
+    font-size: 2.5em;
+    position: relative;
+    width: 1em;
+    height: 1em;
+    border-radius: 5em;
+    background-color: #ec6e4c;
+    text-align: center;
+    line-height: 1.05em;
+    transition: all .2s ease;
+  }
+
+  .close::after {
+    content: "ESC";
+    position: absolute;
+    font-size: 0.3em;
+    color: #ec6e4c;
+    left: 0.7em;
+    top: 3em;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: #ec6e4c;
+    background-color: #fff;
+    border: 1px solid #ec6e4c;
+    transform: scale(1.1);
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .close:active {
+    transform: scale(0.9);
   }
